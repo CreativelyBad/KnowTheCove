@@ -1,5 +1,5 @@
-import utils
-import data
+import app.utils as utils
+import app.data as data
 
 def main():
     date = data.get_tomorrow()
