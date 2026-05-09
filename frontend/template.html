@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Know The Cove</h1>
+    <p>Data for: {{date}}</p>
+    <p style="font-style: italic;">Updates occur at 6 PM PST</p>
+
+    <h2>Weather Info</h2>
+        <p>High: {{temp_high}} &degC</p>
+        <p>Low: {{temp_low}} &degC</p>
+        <a href="https://weather.gc.ca/en/location/index.html?coords=49.323,-122.948">Sourced from Environment Canada API</a>
+
+    <h2>Winds</h2>
+        <p>{{wind}}</p>
+        <p style="font-style: italic;">Winds are for Howe Sound so divide everything in half</p>
+        <a href="https://weather.gc.ca/marine/forecast_e.html?mapID=02&siteID=06400">Sourced from Environment Canada website</a>
+
+    <h2>Tides</h2>
+        <table>
+            {% for tide in tides %}
+            <tr>
+                <td>{{ tide.type }}:</td>
+                <td>{{ tide.height }} @</td>
+                <td>{{ tide.time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="https://www.tide-forecast.com/locations/Deep-Cove-British-Columbia/tides/latest">Sourced from Tide Forecast website</a>
+</body>
+</html>
