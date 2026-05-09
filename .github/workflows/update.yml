@@ -1,0 +1,40 @@
+name: Update Site
+
+on:
+  schedule:
+    - cron: '0 5 * * *'   # every 24h at midnight UTC
+
+  workflow_dispatch:      # allows manual runs
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run generator
+        run: python generate.py
+
+      - name: Commit updated files
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git add index.html
+
+          git commit -m "Auto update site" || echo "No changes"
+
+          git push
