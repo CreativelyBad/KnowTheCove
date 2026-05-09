@@ -6,5 +6,4 @@ def write_index(context):
 
     output = template.render(**context)
 
-    with open('index.html', 'w') as f:
-        f.write(output)
+    return output

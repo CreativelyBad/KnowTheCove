@@ -11,4 +11,5 @@ def main():
     temps = data.get_temp()
     wind = data.get_wind()
     tides = data.get_tides()
-    utils.write_index(date | temps | wind | tides)
+
+    return utils.write_index(date | temps | wind | tides)
