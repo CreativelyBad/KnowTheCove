@@ -1,11 +1,7 @@
-from flask import Flask
-
 import api.utils as utils
 import api.data as data
 
-app = Flask(__name__)
 
-@app.route('/')
 def main():
     date = data.get_tomorrow()
     temps = data.get_temp()
@@ -13,3 +9,4 @@ def main():
     tides = data.get_tides()
 
     return utils.write_index(date | temps | wind | tides)
+
