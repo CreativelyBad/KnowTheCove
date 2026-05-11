@@ -26,7 +26,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run generator
-        run: python /api/main.py
+        run: python api/main.py
 
       - name: Commit updated files
         run: |
