@@ -1,7 +1,6 @@
 import utils
 import data
 
-
 def main():
     date = data.get_tomorrow()
     temps = data.get_temp()
@@ -10,3 +9,5 @@ def main():
 
     return utils.write_index(date | temps | wind | tides)
 
+if __name__ == "__main__":
+    main()
