@@ -1,5 +1,5 @@
-import api.utils as utils
-import api.data as data
+import utils
+import data
 
 
 def main():
